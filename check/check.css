@@ -1,0 +1,13 @@
+body{font-family:system-ui,-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;margin:12px;line-height:1.5;color:#1b1b1b;background:#fff}
+h1{font-size:22px;margin:4px 0 8px}.sub{font-size:14px;font-weight:normal;color:#555}
+.note{font-size:13px;color:#444;margin:0 0 10px}
+.result{font-size:20px;font-weight:bold;padding:12px;border-radius:8px;margin:0 0 12px;border:2px solid #999}
+.result.ok{background:#e7f5e9;border-color:#2e7d32}.result.mid{background:#fff3cd;border-color:#e0b000}.result.ng{background:#fde7e7;border-color:#c62828}
+.result small{display:block;font-size:14px;font-weight:normal;margin-top:4px}
+table{width:100%;border-collapse:collapse}
+th{font-size:12px;font-weight:normal;color:#555;text-align:left;padding:8px 4px 0;border-top:1px solid #ddd}
+td{font-size:24px;font-weight:bold;padding:0 4px 8px;word-break:break-word}
+td small{display:block;font-size:13px;font-weight:normal;color:#555}
+.warn{background:#fff3cd;border:1px solid #e0b000;padding:10px;font-size:15px;margin:0 0 12px;border-radius:8px}
+.warn a{display:inline-block;margin-top:6px;font-size:18px;font-weight:bold}
+.foot{font-size:11px;color:#777;margin-top:14px;word-break:break-all}
