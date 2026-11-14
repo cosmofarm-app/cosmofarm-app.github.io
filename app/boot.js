@@ -1,0 +1,1 @@
+(function(){try{var s=JSON.parse(localStorage.getItem("cosmoV181Keep")||"null");if(s&&typeof s.token==="string"&&s.exp>Date.now())document.documentElement.classList.add("cv-checking");}catch(e){}})();
