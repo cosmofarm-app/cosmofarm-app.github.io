@@ -8,6 +8,8 @@
   url.addEventListener('change',function(){try{localStorage.setItem('step0url',url.value.trim());}catch(e){}});
   document.getElementById('env').textContent='ページ: '+page+' ／ ホーム画面から: '+(standalone()?'はい':'いいえ')+' ／ 電波: '+(navigator.onLine?'あり':'なし');
   log('time '+new Date().toISOString());log('page '+page+' standalone '+standalone()+' online '+navigator.onLine);log('ua '+navigator.userAgent);
+  var inApp=/\bLine\/|FBAN|FBAV|Instagram/.test(navigator.userAgent);
+  if(inApp){log('inapp LINE などのアプリの中のブラウザです');var n=document.createElement('p'),l=document.createElement('a');n.className='warn';n.textContent='LINE などのアプリの中で開いています。下のリンクから Safari / Chrome で開いてください。 ';l.href=location.origin+location.pathname+'?openExternalBrowser=1';l.textContent='ブラウザで開く';n.appendChild(l);document.body.insertBefore(n,document.getElementById('env'));}
   document.addEventListener('securitypolicyviolation',function(e){log('CSP違反 '+e.violatedDirective+' '+e.blockedURI);});
   if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').then(function(r){log('sw registered scope '+r.scope);return navigator.serviceWorker.ready;}).then(function(){log('sw ready controller '+(navigator.serviceWorker.controller?'yes':'no (次に開いたとき yes)'));}).catch(function(e){log('sw NG '+e.message);});}else log('sw なし');
   function db(){return new Promise(function(ok,ng){var q=indexedDB.open('step0',1);q.onupgradeneeded=function(){q.result.createObjectStore('rows',{autoIncrement:true});};q.onsuccess=function(){ok(q.result);};q.onerror=function(){ng(q.error);};});}
