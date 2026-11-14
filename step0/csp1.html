@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' https://script.google.com; manifest-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>COSMO 手順0 試験（宛先を片方だけ）</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-page="one">
+<h1>COSMO 手順0 試験（宛先を片方だけ）</h1>
+<p id="env">…</p>
+<label>試験用GASのアドレス（…/exec）<input id="url" type="url" inputmode="url" autocomplete="off"></label>
+<div class="row"><button id="call" type="button">GASを5回呼ぶ</button><button id="store" type="button">保存を確かめる</button><button id="copy" type="button">結果をコピー</button></div>
+<p><a href="index.html">両方の宛先を許すページ</a>　<a href="csp1.html">片方だけ許すページ</a></p>
+<textarea id="out" readonly rows="18"></textarea>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
