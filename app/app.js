@@ -39,21 +39,21 @@ function cosmoV2449ResetClient_(doc,bridge,initial){
 
 var URL_='https://script.google.com/macros/s/AKfycbyb1aJ8iEJ2di0o3b7YS5Iw91Wd-adwNq3t27MsL6BtjhxxWVK4-reXlZSymLfipBKX/exec',SCREENS=[{"screen":"V156_ATTENDANCE","icon":"🕘","ja":"出退勤","en":"Attendance","id":"Absensi","s":{"ja":"出退勤","en":"Clock","id":"Absen"}},{"screen":"V159_WORK","icon":"🧑‍🌾","ja":"作業記録","en":"Work records","id":"Catatan kerja","s":{"ja":"作業","en":"Work","id":"Kerja"}},{"screen":"V161_HARVEST","icon":"🌸","ja":"収穫・選別・出荷","en":"Harvest · sorting · shipping","id":"Panen · sortir · kirim","s":{"ja":"収穫","en":"Harvest","id":"Panen"}},{"screen":"V160_MATERIAL","icon":"🧪","ja":"農薬・資材","en":"Pesticides · materials","id":"Pestisida · bahan","s":{"ja":"農薬","en":"Spray","id":"Obat"}},{"screen":"V157_CULTIVATION","icon":"🌱","ja":"栽培ロット","en":"Cultivation lots","id":"Lot tanam","s":{"ja":"栽培","en":"Lots","id":"Lot"}},{"screen":"V162_REPORT","icon":"📋","ja":"ひと目・報告","en":"At a glance · reports","id":"Sekilas · laporan","s":{"ja":"報告","en":"Report","id":"Laporan"}},{"screen":"V171_BOARD","icon":"🖥","ja":"据え置き画面（アンドン）","en":"Workplace screen (andon)","id":"Layar tempat kerja (andon)","s":{"ja":"アンドン","en":"Andon","id":"Andon"}}],KEYS={"store":"cosmoV181Keep","id":"cosmoV181LastId","shell":["V156_ATTENDANCE","V157_CULTIVATION","V159_WORK","V160_MATERIAL","V161_HARVEST","V162_REPORT","V171_BOARD"]},LANG='ja',TOKEN=null,ME=null,BUSY=false,MSG='';
 var T={ja:{loginT:'ログイン',id:'ログインID（ローマ字の名前）',pw:'パスワード',keep:'このスマホでログインしたままにする（自分のスマホだけ）',loginB:'ログイン',logout:'ログアウト',hello:'{n} さん、おつかれさまです',loginId:'ログインID（ローマ字の名前）',menuT:'画面をえらぶ',
- checking:'ログイン中…',loginBusy:'ただいま混み合っています。少し待ってから、もう一度押してください。',fail:'ログインできませんでした。IDとパスワードを確かめてください。',comm:'通信できませんでした。電波のよい所でもう一度押してください。',
+ checking:'ログイン中…',loginBusy:'ただいま混み合っています。少し待ってから、もう一度押してください。',ledgerFull:'台帳がいっぱいです。管理者に連絡してください。',E_LEDGER_FULL:'台帳がいっぱいです。管理者に連絡してください。',E_V155_DOC_CAPACITY:'台帳がいっぱいです。管理者に連絡してください。',fail:'ログインできませんでした。IDとパスワードを確かめてください。',comm:'通信できませんでした。電波のよい所でもう一度押してください。',
  instT:'📲 ホーム画面に置く（アプリのように使う）',installed:'✔ ホーム画面から開いています',
  line:'LINE の中の画面では追加できません。右上（または右下）の「…」から「ブラウザで開く」を押してから行ってください。',
  i1:'Safari でこの画面を開く',i2:'下の［共有］ボタン（□に↑）を押す',i3:'「ホーム画面に追加」を押す',i4:'右上の「追加」を押す',
  a1:'Chrome でこの画面を開く',a2:'右上の［⋮］を押す',a3:'「ホーム画面に追加」（または「アプリをインストール」）→「追加」',
  after:'ホーム画面の「COSMO FARM」から開くと、全画面で使えます。「ログインしたままにする」を選ぶと、ログインは最長12時間（8時間使わないと切れます）。選ばないときは、8時間または30分使わないと切れます。'},
  en:{loginT:'Log in',id:'Login ID (your name in romaji)',pw:'Password',keep:'Stay logged in on this phone (own phone only)',loginB:'Log in',logout:'Log out',hello:'Hello, {n}',loginId:'Login ID (your name in romaji)',menuT:'Choose a screen',
- checking:'Logging in…',loginBusy:'The server is busy. Wait a moment and press again.',fail:'Could not log in. Check your ID and password.',comm:'No connection. Try again where the signal is good.',
+ checking:'Logging in…',loginBusy:'The server is busy. Wait a moment and press again.',ledgerFull:'The ledger is full. Please tell a manager.',E_LEDGER_FULL:'The ledger is full. Please tell a manager.',E_V155_DOC_CAPACITY:'The ledger is full. Please tell a manager.',fail:'Could not log in. Check your ID and password.',comm:'No connection. Try again where the signal is good.',
  instT:'📲 Put it on the home screen (use it like an app)',installed:'✔ Opened from the home screen',
  line:'You cannot add it from inside LINE. Tap "…" (top or bottom right) and choose "Open in browser" first.',
  i1:'Open this screen in Safari',i2:'Tap the Share button (square with ↑) at the bottom',i3:'Tap "Add to Home Screen"',i4:'Tap "Add" at the top right',
  a1:'Open this screen in Chrome',a2:'Tap ⋮ at the top right',a3:'"Add to Home screen" (or "Install app") → "Add"',
  after:'Open "COSMO FARM" from the home screen to use it full screen. With "Stay logged in", a login lasts up to 12 hours (it ends after 8 hours without use). Without it, a login ends after 8 hours, or after 30 minutes without use.'},
  id:{loginT:'Masuk',id:'ID login (nama dalam huruf latin)',pw:'Kata sandi',keep:'Tetap masuk di HP ini (HP sendiri saja)',loginB:'Masuk',logout:'Keluar',hello:'Halo, {n}',loginId:'ID login (nama dalam huruf latin)',menuT:'Pilih layar',
- checking:'Sedang masuk…',loginBusy:'Server sedang sibuk. Tunggu sebentar lalu tekan lagi.',fail:'Tidak bisa masuk. Periksa ID dan kata sandi.',comm:'Tidak ada koneksi. Coba lagi di tempat sinyal bagus.',
+ checking:'Sedang masuk…',loginBusy:'Server sedang sibuk. Tunggu sebentar lalu tekan lagi.',ledgerFull:'Buku catatan sudah penuh. Hubungi manajer.',E_LEDGER_FULL:'Buku catatan sudah penuh. Hubungi manajer.',E_V155_DOC_CAPACITY:'Buku catatan sudah penuh. Hubungi manajer.',fail:'Tidak bisa masuk. Periksa ID dan kata sandi.',comm:'Tidak ada koneksi. Coba lagi di tempat sinyal bagus.',
  instT:'📲 Taruh di layar utama (pakai seperti aplikasi)',installed:'✔ Dibuka dari layar utama',
  line:'Tidak bisa ditambahkan dari dalam LINE. Tekan "…" (kanan atas atau kanan bawah) lalu pilih "Buka di browser" dulu.',
  i1:'Buka layar ini di Safari',i2:'Tekan tombol Bagikan (kotak dengan ↑) di bawah',i3:'Tekan "Tambahkan ke Layar Utama"',i4:'Tekan "Tambah" di kanan atas',
@@ -146,7 +146,7 @@ async function hoLoad(){if(!TOKEN)return;try{var r=await rpc('cosmoV179Rpc','HO_
  * LOGIN_OR_SESSION_UNAVAILABLE twice (1.5 s apart). */
 var LOST_P=null;
 function lost(){if(LOST_P)return LOST_P;var tk=TOKEN;LOST_P=(async function(){if(!tk)return true;for(var i=0;i<2;i++){if(i)await new Promise(function(z){setTimeout(z,1500);});if(TOKEN!==tk)return false;
-  try{var s=await rpc('cosmoV155Rpc','SESSION',{token:tk});if(s&&(s.status==='PASS_ISOLATED_SESSION'||s.code==='LOGIN_BUSY'))return false;}catch(e){return false;}}
+  try{var s=await rpc('cosmoV155Rpc','SESSION',{token:tk});if(s&&(s.status==='PASS_ISOLATED_SESSION'||s.code==='LOGIN_BUSY'||s.code==='LEDGER_FULL'))return false;}catch(e){return false;}}
   if(TOKEN!==tk)return false;TOKEN=null;ME=null;HO=null;WX=null;WXH=null;JB=null;AN=null;MSG='';rm();dropCache();shellReset();render();return true;})();
  LOST_P.then(function(){LOST_P=null;},function(){LOST_P=null;});return LOST_P;}
 /* Home in one call + last content first (S000 2026-11-11 反応速度). The cache is per login, kept 36 hours, removed at logout. */
@@ -154,14 +154,15 @@ var JB=null,AN=null,FIELDS={},UNITS={},HOME_FRESH=false,HOME_BUSY=false,CK='cosm
 function saveCache(r){try{localStorage.setItem(CK,JSON.stringify({u:(ME&&ME.loginId)||'',at:Date.now(),r:r}));}catch(e){}}
 function readCache(){try{var c=JSON.parse(localStorage.getItem(CK)||'null');if(c&&c.r&&c.r.ho&&c.u===((ME&&ME.loginId)||'')&&Date.now()-c.at<36*3600000)return c.r;}catch(e){}return null;}
 function dropCache(){try{localStorage.removeItem(CK);}catch(e){}}
-var POL=null,CAP=null;
+var POL=null,CAP=null,FULL=false;
 var CAPL={AUTH:['ログイン','Login','Masuk'],ATT:['出退勤','Attendance','Absensi'],CUL:['栽培','Cultivation','Budidaya'],WORK:['作業','Work','Pekerjaan'],MAT:['農薬','Pesticide','Pestisida'],HARV:['収穫','Harvest','Panen'],REP:['報告','Reports','Laporan']},
  CAPN={ACCOUNTS:['ログインできる人数','People who can log in','Jumlah orang yang bisa masuk'],SESSIONS:['ログイン中の数','Open logins','Login aktif'],GRANTS:['発行中のコード','Issued codes','Kode yang diterbitkan'],LOTS:['栽培ロット','Cultivation lots','Lot budidaya'],WORKS:['作業の記録','Work records','Catatan pekerjaan'],WORK_PHOTOS:['作業の写真','Work photos','Foto pekerjaan'],APPS:['農薬の記録','Pesticide records','Catatan pestisida'],LABELS:['農薬のラベル','Pesticide labels','Label pestisida'],MATERIALS:['農薬の品目','Pesticide items','Jenis pestisida'],MAT_PHOTOS:['農薬の写真','Pesticide photos','Foto pestisida'],HARVEST:['収穫・選別の記録','Harvest and sorting records','Catatan panen dan sortir'],HARV_PHOTOS:['収穫の写真','Harvest photos','Foto panen'],PAPER:['紙の出退勤','Paper attendance','Absensi kertas'],REPORTS:['出荷報告','Shipping reports','Laporan pengiriman'],REP_PHOTOS:['報告の写真','Report photos','Foto laporan'],SALES:['仕切書','Sales slips','Nota penjualan'],AI:['AIの読み取り（今月）','AI reads (this month)','Pembacaan AI (bulan ini)'],MPS:['MPSの記録','MPS records','Catatan MPS'],ANDON:['アンドン','Andon calls','Panggilan andon'],HOUSE:['ハウス開閉','Greenhouse open/close','Buka-tutup rumah kaca'],JOBS:['作業の引き継ぎ','Job handovers','Serah terima pekerjaan']};
 function capName(k){var i=LANG==='en'?1:LANG==='id'?2:0,m=/^(HIST|DOCS)_([A-Z]+)$/.exec(k);if(m&&CAPL[m[2]])return t(m[1]==='HIST'?'capHist':'capDocs').replace('{l}',CAPL[m[2]][i]);return CAPN[k]?CAPN[k][i]:k;}
 function applyHome(r,fresh){POL=r.pol&&r.pol.status==='PASS'?r.pol:POL;CAP=r.cap&&r.cap.status==='PASS'?r.cap:CAP;HO=r.ho&&r.ho.status==='PASS_HOUSE'?r.ho:HO;if(fresh&&HO)HO_SKEW=Date.parse(HO.now)-Date.now();else if(!fresh)HO_SKEW=0;WX=r.wx||WX;JB=r.jb||JB;AN=r.an||AN;FIELDS=r.fields||FIELDS;UNITS=r.units||UNITS;HOME_FRESH=!!fresh;wxRender();hoRender();}
 async function homeLoad(){if(!TOKEN||HOME_BUSY)return;HOME_BUSY=true;WX_BUSY=!WX;wxRender();todoRender();
  try{var r=await rpc('cosmoV181HomeRpc','HM_BOOT',{token:TOKEN});
-  if(r&&r.status==='PASS_HOME'){WX_BUSY=false;applyHome(r,true);saveCache(r);}
+  if(r&&r.status==='PASS_HOME'){FULL=false;WX_BUSY=false;applyHome(r,true);saveCache(r);}
+  else if(r&&r.code==='LEDGER_FULL'){FULL=true;WX_BUSY=false;HOME_FRESH=true;wxRender();todoRender();}
   else if(r&&r.code==='LOGIN_OR_SESSION_UNAVAILABLE'){WX_BUSY=false;await lost();}
   else if(r&&r.code==='LOGIN_BUSY'){WX_BUSY=false;wxRender();todoRender();setTimeout(function(){if(TOKEN)homeLoad();},5000);}
   else{WX_BUSY=false;HOME_FRESH=true;await Promise.all([hoLoad(),wxLoad()]);}}
@@ -198,6 +199,8 @@ function unitName(u){var x=UNITS[u];return x?(LANG==='en'?' '+x.en:LANG==='id'?'
 function todoRender(){var box=$('todoBox');box.classList.toggle('hidden',!TOKEN);if(!TOKEN)return;var R=$('tdRows');R.innerHTML='';$('tdUpd').textContent=HOME_FRESH?'':t('tdUpd');
  function item(icon,text,cls,go){var a=el(go?'a':'div','td'+(cls?' '+cls:''));if(go){var local=go.charAt(0)==='#';a.href=local?go:URL_+'?screen='+go;a.target=local?'_self':'_top';}
   a.appendChild(el('span','ti',icon));a.appendChild(el('span','tx',text));if(go)a.appendChild(el('span','chevron','›'));R.appendChild(a);}
+ /* V181.30: a ledger that is full (nothing can be saved) is said to everyone, first */
+ if(FULL)item('🔴',t('E_LEDGER_FULL'),'late',null);
  /* V181.28: managers only, from 30 days before the login permission ends */
  if(POL&&POL.warn&&HO&&HO.isDirector)item('🟠',t('tdPol').replace('{d}',String(Math.max(0,POL.daysLeft))).replace('{date}',new Date(Date.parse(POL.expiresAt)+32400000).toISOString().slice(0,10).replace(/-/g,'/')),'warn',null);
  /* V181.29: managers only, every limit at 80% or more (fullest first, 5 at most), and the parts the check could not read */
@@ -244,7 +247,7 @@ function rpc(fn,action,data){return new Promise(function(res,rej){google.script.
 function rd(){try{var s=JSON.parse(localStorage.getItem(KEYS.store)||'null');if(s&&typeof s.token==='string'&&s.exp>Date.now())return s;localStorage.removeItem(KEYS.store);}catch(e){}return null;}
 function rm(){try{localStorage.removeItem(KEYS.store);}catch(e){}}
 function standalone(){try{return (window.navigator.standalone===true)||window.matchMedia('(display-mode: standalone)').matches;}catch(e){return false;}}
-function showMsg(){var n=$('login-status');if(!n)return;n.textContent=MSG?t(MSG):'';n.className=(MSG==='fail'||MSG==='comm'||MSG==='loginBusy')?'err':MSG==='checking'?'wait':'';
+function showMsg(){var n=$('login-status');if(!n)return;n.textContent=MSG?t(MSG):'';n.className=(MSG==='fail'||MSG==='comm'||MSG==='loginBusy'||MSG==='ledgerFull')?'err':MSG==='checking'?'wait':'';
  var b=document.querySelector('#login-form .submit');if(b)b.disabled=MSG==='checking';
  /* 2026-11-12 S000「ログイン中が出ない」: on a phone the keyboard stays open after pressing ログイン and covers the line under the button —
   * close the keyboard and bring the line into view. */
@@ -267,7 +270,7 @@ function cosmoV181HomeBridge_(){var lang0=null;try{lang0=localStorage.getItem('c
   resetBridge:{mode:'MANAGER_CODE',complete:function(q){return rpc('cosmoV155Rpc','COMPLETE_SETUP',{loginId:q.loginId,code:q.token,password:q.password});}},setLanguage:function(l){if(T[l]&&l!==LANG){LANG=l;try{localStorage.setItem('cosmoV181Lang',l);}catch(e){}render();}else if(T[l])LANG=l;},
   statusText:function(){return MSG?t(MSG):'';},loginIdText:function(){return t('loginId');},
   login:async function(q){if(BUSY)return;MSG='';var id=String(q.loginId||'').trim(),pw=q.password;if(!id||!pw){MSG='fail';showMsg();return;}BUSY=true;MSG='checking';showMsg();
-   try{var r=await rpc('cosmoV155Rpc','LOGIN',{loginId:id,password:pw,keep:!!$('cv181keep').checked});if(r.status!=='PASS_ISOLATED_LOGIN'){MSG=r&&r.code==='LOGIN_BUSY'?'loginBusy':'fail';return;}
+   try{var r=await rpc('cosmoV155Rpc','LOGIN',{loginId:id,password:pw,keep:!!$('cv181keep').checked});if(r.status!=='PASS_ISOLATED_LOGIN'){MSG=r&&(r.code==='LEDGER_FULL'||r.code==='V155_DOC_CAPACITY')?'ledgerFull':r&&r.code==='LOGIN_BUSY'?'loginBusy':'fail';return;}
     TOKEN=r.token;ME=r.view;MSG='';try{localStorage.setItem(KEYS.id,id);}catch(e){}
     if($('cv181keep').checked){try{localStorage.setItem(KEYS.store,JSON.stringify({token:r.token,view:r.view||null,exp:Number(r.expiresAt)||Date.now()+28800000}));}catch(e){}}else rm();
     render();afterLogin();window.scrollTo(0,0);
